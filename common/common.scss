@@ -1,20 +1,20 @@
 /* Members-only not-found page — JR branding.
    The wording, links and button are set by
    javascripts/discourse/api-initializers/members-only-customize.js, which adds
-   `.jr-404-done` to the container only on the members-only (403) page. Everything
-   here is scoped under that class, so a genuine 404 is left untouched. This file
-   only styles the injected message and swaps the illustration for the JR
-   monogram. */
+   `.jr-404-done` to the container only on the members-only (403) page. */
 
-.page-not-found.jr-404-done {
-  /* Swap Discourse's ":(" illustration for the JR 25th-anniversary monogram.
-     Rendered as a mask so `logo_color` controls the tint — an external SVG used
-     as a background-image can't pick up currentColor. */
-  .illustration-not-found svg {
+/* Illustration swap applies on BOTH the 403 (members-only) and the genuine 404
+   page. It is intentionally NOT scoped under `.jr-404-done`: the genuine 404 is
+   a no-ember page where our JS never runs, but theme CSS still loads there, so a
+   pure-CSS swap is the only way to brand it. Replaces Discourse's ":(" magnifier
+   with the JR monogram, masked so `logo_color` controls the tint (an external
+   SVG used as a background-image can't pick up currentColor). */
+.page-not-found .illustration-not-found {
+  svg {
     display: none;
   }
 
-  .illustration-not-found::after {
+  &::after {
     content: "";
     display: block;
     width: clamp(150px, 20vw, 200px);
@@ -24,7 +24,11 @@
     -webkit-mask: url($jr-monogram) center / contain no-repeat;
     mask: url($jr-monogram) center / contain no-repeat;
   }
+}
 
+/* The rest is the members-only (403) treatment only — the initializer adds
+   `.jr-404-done`, so a genuine 404 keeps Discourse's default title/button. */
+.page-not-found.jr-404-done {
   .jr-404-message {
     margin: 0.5em 0 1.25em;
     font-size: var(--font-up-1);
