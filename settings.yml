@@ -25,6 +25,6 @@ logo_svg:
   type: string
   default: ""
   description: |
-    Optional inline SVG for the JR logo that replaces the default illustration
-    at the top of the not-found page. Use fill='currentColor' so it picks up the
-    theme colour set in the component's CSS. Leave empty to keep the default.
+    Optional inline SVG that replaces the default illustration at the top of the
+    not-found page. Leave empty to use the bundled JR 25th-anniversary monogram.
+    Use fill='currentColor' so it picks up the colour set in the component's CSS.

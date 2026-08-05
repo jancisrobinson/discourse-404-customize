@@ -1,4 +1,5 @@
 import { apiInitializer } from "discourse/lib/api";
+import JR_LOGO from "../lib/jr-logo";
 
 export default apiInitializer((api) => {
   function isAnonymous() {
@@ -52,12 +53,12 @@ export default apiInitializer((api) => {
   }
 
   function swapLogo(root) {
-    if (!settings.logo_svg) return;
+    const svg = settings.logo_svg || JR_LOGO;
     const illustration = root.querySelector("img, .d-image-grid, svg");
     if (!illustration || illustration.closest(".jr-404-message")) return;
     const holder = document.createElement("div");
     holder.className = "jr-notfound-logo";
-    holder.innerHTML = settings.logo_svg;
+    holder.innerHTML = svg;
     illustration.replaceWith(holder);
   }
 
