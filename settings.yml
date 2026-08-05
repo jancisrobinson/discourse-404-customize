@@ -1,0 +1,30 @@
+membership_url:
+  type: string
+  default: "https://www.jancisrobinson.com/membership"
+  description: "URL to the membership/subscribe page on the main site."
+
+page_title:
+  type: string
+  default: "Join the conversation"
+  description: "Overrides the not-found page title (h1). Leave empty to keep the default Discourse title."
+
+message_html:
+  type: string
+  default: "This conversation is for JancisRobinson.com members only. <a href='#login'>Log in</a> or <a href='#subscribe'>become a member</a> to join the conversation."
+  description: |
+    HTML shown under the title on the not-found page (anonymous visitors only).
+    Use href='#login' for the login link (rewritten to an SSO login that returns
+    to the current page) and href='#subscribe' for the membership link.
+
+button_text:
+  type: string
+  default: "Become a member"
+  description: "Text for the primary button on the not-found page. It is pointed at the membership URL and the home icon is removed. Leave empty to keep the default button."
+
+logo_svg:
+  type: string
+  default: ""
+  description: |
+    Optional inline SVG for the JR logo that replaces the default illustration
+    at the top of the not-found page. Use fill='currentColor' so it picks up the
+    theme colour set in the component's CSS. Leave empty to keep the default.

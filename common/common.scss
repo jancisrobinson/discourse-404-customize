@@ -1,0 +1,18 @@
+/* 404 / members-only not-found customization */
+
+.page-not-found {
+  .jr-404-message {
+    margin: 0.5em 0 1em;
+  }
+
+  /* JR logo replacing the default illustration.
+     SVG should use fill="currentColor" to pick up this colour. */
+  .jr-notfound-logo {
+    color: #d19bd6; /* light purple/pink — adjust to the JR brand tint */
+
+    svg {
+      max-width: 180px;
+      height: auto;
+    }
+  }
+}

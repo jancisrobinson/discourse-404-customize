@@ -1,0 +1,9 @@
+{
+  "name": "404 Customize",
+  "about_url": "",
+  "license_url": "https://github.com/discourse/discourse/blob/main/LICENSE.txt",
+  "component": true,
+  "minimum_discourse_version": "3.1.0",
+  "maximum_discourse_version": null,
+  "authors": "JancisRobinson.com"
+}
