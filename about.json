@@ -5,5 +5,8 @@
   "component": true,
   "minimum_discourse_version": "3.1.0",
   "maximum_discourse_version": null,
-  "authors": "JancisRobinson.com"
+  "authors": "JancisRobinson.com",
+  "assets": {
+    "jr-monogram": "assets/jr-monogram.svg"
+  }
 }

@@ -1,18 +1,46 @@
-/* 404 / members-only not-found customization */
+/* Members-only not-found page — JR branding.
+   The wording, links and button are set by
+   javascripts/discourse/api-initializers/members-only-customize.js, which adds
+   `.jr-404-done` to the container only on the members-only (403) page. Everything
+   here is scoped under that class, so a genuine 404 is left untouched. This file
+   only styles the injected message and swaps the illustration for the JR
+   monogram. */
 
-.page-not-found {
-  .jr-404-message {
-    margin: 0.5em 0 1em;
+.page-not-found.jr-404-done {
+  /* Swap Discourse's ":(" illustration for the JR 25th-anniversary monogram.
+     Rendered as a mask so `logo_color` controls the tint — an external SVG used
+     as a background-image can't pick up currentColor. */
+  .illustration-not-found svg {
+    display: none;
   }
 
-  /* JR logo replacing the default illustration.
-     SVG should use fill="currentColor" to pick up this colour. */
-  .jr-notfound-logo {
-    color: #d19bd6; /* light purple/pink — adjust to the JR brand tint */
+  .illustration-not-found::after {
+    content: "";
+    display: block;
+    width: clamp(150px, 20vw, 200px);
+    aspect-ratio: 1;
+    margin: 0 auto;
+    background-color: $logo_color;
+    -webkit-mask: url($jr-monogram) center / contain no-repeat;
+    mask: url($jr-monogram) center / contain no-repeat;
+  }
 
-    svg {
-      max-width: 180px;
-      height: auto;
+  .jr-404-message {
+    margin: 0.5em 0 1.25em;
+    font-size: var(--font-up-1);
+    line-height: var(--line-height-large);
+  }
+
+  /* On mobile the theme's fixed purple `.background-container` shows through the
+     heading (which has no opaque surface of its own), leaving the dark title and
+     purple links unreadable. Give the heading its own light card below the mobile
+     breakpoint — desktop already sits on a light content card. */
+  @media (width < 40rem) {
+    .heading {
+      background: var(--secondary);
+      border-radius: var(--d-border-radius-large);
+      padding: var(--space-6) var(--space-4);
+      margin-inline: var(--space-3);
     }
   }
 }
