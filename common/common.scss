@@ -37,6 +37,16 @@
     line-height: var(--line-height-large);
   }
 
+  /* Row layout (>= 40rem): the illustration sits on the left, so left-align the
+     text block (Discourse centres it by default). Below the breakpoint the
+     heading stacks (logo on top) and stays centred. */
+  @media (width >= 40rem) {
+    .title_wrapper,
+    h1.title {
+      text-align: left;
+    }
+  }
+
   /* On mobile the theme's fixed purple `.background-container` shows through the
      heading (which has no opaque surface of its own), leaving the dark title and
      purple links unreadable. Give the heading its own light card below the mobile
